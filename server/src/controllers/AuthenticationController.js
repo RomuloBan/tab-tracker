@@ -1,9 +1,21 @@
 const router = require('express').Router()
+const {User} = require('../models')
 
-router.get('/', (req, res) =>
-  res.send({
-    message: `Hello ${req.body.email}! Your user was registered! Have fun!`
+const createUser = async (user) => {
+  try {
+    const r = await User.create(user)
+    return r.toJSON()
+  } catch (err) {
+    return {
+      error: 'This email account is already in use.'
+    }
+  }
+}
+
+router.post('/', (req, res) => {
+  createUser(req.body).then((user) => {
+    res.send(user)
   })
-)
+})
 
 module.exports = router
