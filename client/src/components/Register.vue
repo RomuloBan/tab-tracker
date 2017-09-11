@@ -2,7 +2,7 @@
   <div>
     <h1>Register</h1>
 
-    <input 
+    <input
       type="email"
       name="email"
       v-model="email"
