@@ -1,13 +1,21 @@
 <template>
   <v-app>
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view></router-view>
+    <page-header />
+    <main>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </main>
   </v-app>
 </template>
 
 <script>
+import PageHeader from '@/components/Header.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    PageHeader
+  }
 }
 </script>
 
