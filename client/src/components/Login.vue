@@ -14,6 +14,7 @@
           <v-text-field
             label="Password"
             v-model="password"
+            type="password"
           />
           <br>
           <div class="error-login" v-html="error"></div>
@@ -43,11 +44,12 @@ export default {
   methods: {
     async login () {
       try {
-        await AuthenticationService.login({
-            email: this.email,
-            password: this.password
-          })
-
+        const response = await AuthenticationService.login({
+          email: this.email,
+          password: this.password
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
