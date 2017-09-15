@@ -16,7 +16,7 @@
             v-model="password"
           />
           <br>
-          <div class="error" v-html="error"></div>
+          <div class="error-login" v-html="error"></div>
           <br>
           <v-btn
           dark
@@ -42,15 +42,15 @@ export default {
   },
   methods: {
     async login () {
-/*       try {
-        await AuthenticationService.register({
+      try {
+        await AuthenticationService.login({
             email: this.email,
             password: this.password
           })
 
       } catch (error) {
         this.error = error.response.data.error
-      } */
+      }
     }
   }
 }
@@ -58,7 +58,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .error {
+  .error-login {
     color: red;
   }
 </style>
