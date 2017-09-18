@@ -5,4 +5,10 @@ module.exports = (app) => {
 
   app.use('/login',
     require('./controllers/AuthenticationController').login)
+
+  app.use('/songs',
+    require('./controllers/SongsController').index)
+
+  app.use('/song',
+    require('./controllers/SongsController').post)
 }
