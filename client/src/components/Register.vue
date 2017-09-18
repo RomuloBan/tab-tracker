@@ -1,34 +1,29 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense dark class="cyan">
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
-        <div class="pl-4 pr-4 pt-2 pb-2">
-            <v-text-field
-              label="Email"
-              v-model="email"
-            />
-            <br>
-            <v-text-field
-              name="input-10-1"
-              label="Password"
-              v-model="password"
-              :append-icon="el ? 'visibility' : 'visibility_off'"
-              :append-icon-cb="() => {el =!el}"
-              :type="el ? 'password' : 'text'"
-            />
-            <br>
-            <div class="error-register" v-html="error"></div>
-            <br>
-            <v-btn
-            dark
-            class="cyan"
-            @click="register"
-            >Register</v-btn>
-        </div>
-      </div>
+      <panel title="Register">
+        <v-text-field
+          label="Email"
+          v-model="email"
+        />
+        <br>
+        <v-text-field
+          name="input-10-1"
+          label="Password"
+          v-model="password"
+          :append-icon="el ? 'visibility' : 'visibility_off'"
+          :append-icon-cb="() => {el =!el}"
+          :type="el ? 'password' : 'text'"
+        />
+        <br>
+        <div class="error-register" v-html="error"></div>
+        <br>
+        <v-btn
+        dark
+        class="cyan"
+        @click="register"
+        >Register</v-btn>
+      </panel>
     </v-flex>
   </v-layout>
 
@@ -36,6 +31,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -44,6 +40,9 @@ export default {
       email: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async register () {
