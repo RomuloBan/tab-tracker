@@ -1,31 +1,26 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense dark class="cyan">
-          <v-toolbar-title>Login</v-toolbar-title>
-        </v-toolbar>
-        <div class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field
-            label="Email"
-            v-model="email"
-          />
-          <br>
-          <v-text-field
-            label="Password"
-            v-model="password"
-            type="password"
-          />
-          <br>
-          <div class="error-login" v-html="error"></div>
-          <br>
-          <v-btn
-          dark
-          class="cyan"
-          @click="login"
-          >Login</v-btn>
-        </div>
-      </div>
+      <panel title="Login">
+        <v-text-field
+          label="Email"
+          v-model="email"
+        />
+        <br>
+        <v-text-field
+          label="Password"
+          v-model="password"
+          type="password"
+        />
+        <br>
+        <div class="error-login" v-html="error"></div>
+        <br>
+        <v-btn
+        dark
+        class="cyan"
+        @click="login"
+        >Login</v-btn>
+      </panel>
     </v-flex>
   </v-layout>
 
@@ -33,6 +28,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -40,6 +36,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async login () {
