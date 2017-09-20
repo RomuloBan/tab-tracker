@@ -32,10 +32,10 @@
                 <v-btn
                   dark
                   class="cyan"
-                  @click="naviageTo({
+                  @click="navigateTo({
                     name: 'song',
                     params: {
-                      songId: this.id
+                      songId: song.id
                     }
                   })">
                   View
