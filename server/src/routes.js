@@ -9,6 +9,9 @@ module.exports = (app) => {
   app.use('/songs',
     require('./controllers/SongsController').index)
 
+  app.use('/song/:songId',
+    require('./controllers/SongsController').show)
+
   app.use('/song',
     require('./controllers/SongsController').post)
 }
