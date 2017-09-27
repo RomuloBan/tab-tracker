@@ -9,16 +9,12 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 
 export default {
   props: [
     'text',
     'title'
-  ],
-  components: {
-    Panel
-  }
+  ]
 }
 </script>
 

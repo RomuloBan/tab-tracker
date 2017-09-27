@@ -31,7 +31,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
+
 export default {
   data () {
     return {
@@ -40,9 +40,6 @@ export default {
       email: '',
       error: null
     }
-  },
-  components: {
-    Panel
   },
   methods: {
     async register () {
