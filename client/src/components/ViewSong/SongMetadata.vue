@@ -17,8 +17,10 @@
           dark
           :to="{
             name: 'edit-song',
-            params: {
-              songId: song.id
+            params() {
+              return {
+                songId: song.id
+              }
             }
           }">
           Edit
