@@ -1,12 +1,13 @@
 <template>
   <v-toolbar fixed dark class="cyan">
     <v-toolbar-title class="mr-4">
-      <span
+      <router-link
+        tag="span"
         class="home"
-        @click="navigateTo({ name: 'root'})"
+        :to="{ name: 'root'}"
       >
         TabTracker
-      </span>
+      </router-link>
     </v-toolbar-title>
     <v-toolbar-items>
       <v-btn
