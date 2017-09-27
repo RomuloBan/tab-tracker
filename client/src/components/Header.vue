@@ -4,7 +4,7 @@
       <router-link
         tag="span"
         class="home"
-        :to="{ name: 'root'}"
+        :to="{ name: 'songs'}"
       >
         TabTracker
       </router-link>
@@ -47,7 +47,7 @@ export default {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({
-        name: 'root'
+        name: 'songs'
       })
     }
   }
