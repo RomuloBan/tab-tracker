@@ -6,7 +6,7 @@
     slot="action"
     small
     absolute
-    @click="navigateTo({name: 'create-song'})"
+    :to="{name: 'create-song'}"
     right>
       <v-icon
       >add</v-icon>
@@ -30,12 +30,12 @@
           <v-btn
             dark
             class="cyan"
-            @click="navigateTo({
+            :to="{
               name: 'song',
               params: {
                 songId: song.id
               }
-            })">
+            }">
             View
           </v-btn>
 
@@ -54,12 +54,7 @@ import SongsService from '@/services/SongsService'
 export default {
   props: [
     'songs'
-  ],
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    }
-  }
+  ]
 }
 </script>
 

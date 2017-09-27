@@ -12,7 +12,7 @@
     <v-toolbar-items>
       <v-btn
         flat
-        @click="navigateTo({name: 'songs'})">
+        :to="{name: 'songs'}">
         Browse
       </v-btn>
     </v-toolbar-items>
@@ -21,13 +21,13 @@
       <v-btn
         v-if="!$store.state.isUserLoggedIn"
         flat
-        @click="navigateTo({ name: 'register'})">
+        :to="{ name: 'register'}">
         Sign Up
       </v-btn>
       <v-btn
         v-if="!$store.state.isUserLoggedIn"
         flat
-        @click="navigateTo({ name: 'login'})">
+        :to="{ name: 'login'}">
         Login
       </v-btn>
       <v-btn
@@ -43,9 +43,6 @@
 <script>
 export default {
   methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    },
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
