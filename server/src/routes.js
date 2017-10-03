@@ -17,4 +17,13 @@ module.exports = (app) => {
 
   app.use('/song',
     require('./controllers/SongsController').post)
+
+  app.use('/bookmarks',
+    require('./controllers/BookmarksController').index)
+
+  app.use('/bookmark/:bookmarkId',
+    require('./controllers/BookmarksController').delete)
+
+  app.use('/bookmark',
+    require('./controllers/BookmarksController').post)
 }
