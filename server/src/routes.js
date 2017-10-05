@@ -26,4 +26,10 @@ module.exports = (app) => {
 
   app.use('/bookmark',
     require('./controllers/BookmarksController').post)
+
+  app.get('/histories',
+    require('./controllers/HistoriesController').index)
+
+  app.post('/histories',
+    require('./controllers/HistoriesController').post)
 }
