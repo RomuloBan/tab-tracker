@@ -24,7 +24,8 @@ import SongsService from '@/services/SongsService'
 import SongMetadata from './SongMetadata'
 import SongTextarea from './SongTextarea'
 import YouTube from './YouTube'
-
+import {mapState} from 'vuex'
+import HistoriesService from '@/services/HistoriesService'
 export default {
   data () {
     return {
@@ -36,10 +37,23 @@ export default {
     SongTextarea,
     YouTube
   },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user',
+      'route'
+    ])
+  },
   async mounted () {
     try {
-      const songId = this.$store.state.route.params.songId
+      const songId = this.route.params.songId
       this.song = (await SongsService.show(songId)).data;
+      if(this.isUserLoggedIn) {
+        HistoriesService.post({
+          songId: songId,
+          userId: this.user.id
+        })
+      }
     } catch(err) {
       console.log('Error trying to find the song.')
     }
