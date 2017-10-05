@@ -32,12 +32,12 @@ export default {
       ],
       bookmarks: [],
       pagination: {
-        sortBy: 'date',
+        sortBy: 'createdAt',
         descending: true
       }
     }
   },
-    computed: {
+  computed: {
     ...mapState([
       'isUserLoggedIn',
       'user'
