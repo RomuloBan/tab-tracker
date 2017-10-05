@@ -2,6 +2,7 @@
   <v-layout>
     <v-flex xs6>
       <songs-bookmarks />
+      <recently-viewed-songs />
     </v-flex>
     <v-flex xs6 class="ml-2">
       <search-panel />
@@ -14,6 +15,7 @@
 import SongsService from '@/services/SongsService'
 import SongsPanel from './SongsPanel'
 import SongsBookmarks from './SongsBookmarks'
+import RecentlyViewedSongs from './RecentlyViewedSongs'
 import SearchPanel from './SongsSearchPanel'
 export default {
   data () {
@@ -24,7 +26,8 @@ export default {
   components: {
     SongsPanel,
     SearchPanel,
-    SongsBookmarks
+    SongsBookmarks,
+    RecentlyViewedSongs
   },
   async mounted () {
     this.songs = (await SongsService.index()).data
