@@ -46,9 +46,7 @@ export default {
   async mounted () {
     if(this.isUserLoggedIn) {
       try {
-        this.histories = (await HistoriesService.index({
-          userId: this.user.id
-        })).data
+        this.histories = (await HistoriesService.index()).data
       } catch(err) {
         console.log(err)
       }
