@@ -1,3 +1,5 @@
+const isAuthenticated = require('./policies/isAuthenticated')
+
 module.exports = (app) => {
   app.use('/register',
     require('./policies/AuthenticationControllerPolicy').register,
@@ -19,17 +21,22 @@ module.exports = (app) => {
     require('./controllers/SongsController').post)
 
   app.use('/bookmarks',
+    isAuthenticated,
     require('./controllers/BookmarksController').index)
 
   app.use('/bookmark/:bookmarkId',
+    isAuthenticated,
     require('./controllers/BookmarksController').delete)
 
   app.use('/bookmark',
+    isAuthenticated,
     require('./controllers/BookmarksController').post)
 
   app.get('/histories',
+    isAuthenticated,
     require('./controllers/HistoriesController').index)
 
   app.post('/histories',
+    isAuthenticated,
     require('./controllers/HistoriesController').post)
 }
